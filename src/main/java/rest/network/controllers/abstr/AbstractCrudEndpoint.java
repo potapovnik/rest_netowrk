@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.*;
 import rest.network.service.abstr.CrudService;
 
 import java.util.List;
-import java.util.Map.Entry;
 
 @RequiredArgsConstructor
 public abstract class AbstractCrudEndpoint<Entity, DTO, EntityId extends Long> {
@@ -33,7 +32,7 @@ public abstract class AbstractCrudEndpoint<Entity, DTO, EntityId extends Long> {
     }
 
     @PostMapping
-    public void save(@RequestBody DTO dto) {
-        service.save(dto);
+    public Entity save(@RequestBody DTO dto) {
+        return service.save(dto);
     }
 }

@@ -13,7 +13,7 @@ public class UserEntity {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "users_seq")
-    @SequenceGenerator(name = "users_seq", sequenceName = "users_id_seq", allocationSize = 1)
+    @SequenceGenerator(name = "users_seq", sequenceName = "dim_users_id_seq", allocationSize = 1)
     private Long id;
     private String name;
     private String surname;

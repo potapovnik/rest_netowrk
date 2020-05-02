@@ -12,7 +12,7 @@ public class PostTypeEntity {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "post_type_seq")
-    @SequenceGenerator(name = "post_type_seq", sequenceName = "post_type_id_seq", allocationSize = 1)
+    @SequenceGenerator(name = "post_type_seq", sequenceName = "dim_post_type_id_seq", allocationSize = 1)
     private Long id;
     private String name;
 }
