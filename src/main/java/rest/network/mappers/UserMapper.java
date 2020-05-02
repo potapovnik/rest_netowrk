@@ -6,7 +6,7 @@ import rest.network.entity.UserEntity;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring", uses = {PostMapper.class})
+@Mapper(componentModel = "spring", uses = {PostEntityMapper.class})
 public interface UserMapper {
 
     UserEntity fromDto(UserDto userDto);

@@ -1,15 +1,12 @@
 package rest.network.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.List;
-import java.util.Objects;
 
 @Entity
-@Table(name = "users", schema = "public", catalog = "rest_network")
+@Table(name = "dim_users", schema = "public", catalog = "rest_network")
 @Data
 public class UserEntity {
 

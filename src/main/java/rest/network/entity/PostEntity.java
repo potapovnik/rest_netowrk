@@ -3,7 +3,7 @@ package rest.network.entity;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -22,23 +22,23 @@ public class PostEntity {
     private Double lot;
 
     @Column(name = "created_date")
-    private Timestamp createdDate;
-
+    private Date createdDate;
 
     @Column(name = "start_date")
-    private Timestamp startDate;
-
+    private Date startDate;
 
     @Column(name = "finish_date")
-    private Timestamp finishDate;
+    private Date finishDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "creator_id")
     private UserEntity creator;
 
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "post_users",
+    @JoinTable(
+            name = "rel_post_users",
             joinColumns = @JoinColumn(name = "post_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id"))
+            inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
     private List<UserEntity> participants;
 }
