@@ -7,9 +7,10 @@ import rest.network.service.abstr.CrudService;
 import java.util.List;
 
 @RequiredArgsConstructor
-public abstract class AbstractCrudEndpoint<Entity, DTO, EntityId extends Long> {
+public abstract class AbstractCrudEndpoint
+        <Entity, DTO, EntityId extends Long, Service extends CrudService<Entity, DTO, EntityId>> {
 
-    private final CrudService<Entity, DTO, EntityId> service;
+    protected final Service service;
 
     @GetMapping("/{id}")
     public DTO getById(@PathVariable EntityId id) {

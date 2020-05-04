@@ -14,9 +14,11 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
-public abstract class AbstractCrudService<Entity, DTO, EntityId extends Long> implements CrudService<Entity, DTO, EntityId> {
+public abstract class AbstractCrudService
+        <Entity, DTO, EntityId extends Long, Repository extends JpaRepository<Entity, EntityId>>
+        implements CrudService<Entity, DTO, EntityId> {
 
-    protected final JpaRepository<Entity, EntityId> repository;
+    protected final Repository repository;
     protected final EntityMapper<Entity, DTO> mapper;
 
     protected final static Function<Long, Supplier<CrudException>> ENTITY_NOT_FOUND_EXCEPTION =

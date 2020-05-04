@@ -5,4 +5,6 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import rest.network.entity.PostTypeEntity;
 
 public interface PostTypeRepository extends JpaRepository<PostTypeEntity, Long> {
+
+    public PostTypeEntity getByName(String name);
 }
