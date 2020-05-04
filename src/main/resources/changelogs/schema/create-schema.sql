@@ -1,4 +1,4 @@
-create table users
+create table dim_users
 (
 	id bigserial not null
 		constraint users_pkey
@@ -12,7 +12,7 @@ create table users
 	phone_number varchar(30)
 );
 
-alter table users owner to postgres;
+alter table dim_users owner to postgres;
 
 create table post
 (
@@ -25,7 +25,7 @@ create table post
 	lot double precision,
 	creator_id integer
 		constraint post_users_id_fk
-			references users,
+			references dim_users,
 	created_date timestamp,
 	start_date timestamp,
 	finish_date timestamp
@@ -33,7 +33,7 @@ create table post
 
 alter table post owner to postgres;
 
-create table post_type
+create table dim_post_type
 (
 	id bigserial not null
 		constraint post_type_pkey
@@ -41,9 +41,9 @@ create table post_type
 	name varchar(100)
 );
 
-alter table post_type owner to postgres;
+alter table dim_post_type owner to postgres;
 
-create table post_users
+create table rel_post_users
 (
 	id bigserial not null
 		constraint post_users_pkey
@@ -53,12 +53,12 @@ create table post_users
 			references post,
 	user_id integer
 		constraint post_users_users_id_fk
-			references users
+			references dim_users
 );
 
-alter table post_users owner to postgres;
+alter table rel_post_users owner to postgres;
 
-create table post_type_relation
+create table rel_post_type
 (
 	id bigserial not null
 		constraint post_type_relation_pkey
@@ -68,8 +68,8 @@ create table post_type_relation
 			references post,
 	type_id integer
 		constraint post_type_relation_post_type_id_fk
-			references post_type
+			references dim_post_type
 );
 
-alter table post_type_relation owner to postgres;
+alter table rel_post_type owner to postgres;
 

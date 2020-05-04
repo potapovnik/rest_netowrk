@@ -1,22 +1,19 @@
 package rest.network.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.List;
-import java.util.Objects;
 
 @Entity
-@Table(name = "users", schema = "public", catalog = "rest_network")
+@Table(name = "dim_users", schema = "public", catalog = "rest_network")
 @Data
 public class UserEntity {
 
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "users_seq")
-    @SequenceGenerator(name = "users_seq", sequenceName = "users_id_seq", allocationSize = 1)
+    @SequenceGenerator(name = "users_seq", sequenceName = "dim_users_id_seq", allocationSize = 1)
     private Long id;
     private String name;
     private String surname;
