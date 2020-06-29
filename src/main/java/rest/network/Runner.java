@@ -3,6 +3,7 @@ package rest.network;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
@@ -13,7 +14,7 @@ public class Runner {
     public static final String ATTACHMENTS = RESOURCES_ROOT + "/attachments";
 
     public static void main(String[] args) {
-        SpringApplication.run(Runner.class, args);
+        ApplicationContext context = SpringApplication.run(Runner.class, args);
         log.info("Application started");
     }
 

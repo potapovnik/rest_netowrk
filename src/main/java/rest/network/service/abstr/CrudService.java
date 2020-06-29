@@ -1,5 +1,6 @@
 package rest.network.service.abstr;
 
+import javax.validation.Valid;
 import java.util.List;
 
 public interface CrudService<Entity, DTO, EntityId extends Long> {
@@ -12,5 +13,5 @@ public interface CrudService<Entity, DTO, EntityId extends Long> {
 
     void deleteByIds(List<EntityId> ids);
 
-    Entity save(DTO dto);
+    Entity save(@Valid DTO dto);
 }

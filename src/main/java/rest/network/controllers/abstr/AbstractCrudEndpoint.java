@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import rest.network.service.abstr.CrudService;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -33,7 +34,7 @@ public abstract class AbstractCrudEndpoint
     }
 
     @PostMapping
-    public Entity save(@RequestBody DTO dto) {
+    public Entity save(@Valid @RequestBody DTO dto) {
         return service.save(dto);
     }
 }
